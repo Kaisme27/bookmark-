@@ -1,256 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-373QXXN8BH"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-373QXXN8BH');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tool Navigation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #4a90e2;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .search-container input[type="text"] {
-            width: 50%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-            padding: 20px;
-        }
-        .category {
-            margin-bottom: 40px;
-        }
-        .category h2 {
-            color: #333;
-        }
-        .tool-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        .tool-item {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .tool-item a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .tool-item a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Efficore - AI efficiency tool library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>AI Tools for Personal Efficiency</h1>
-    </header>
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterTools()" placeholder="Search tools...">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>efficore.online</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#categories" class="nav-link">Categories</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">AI Tools for Personal Efficiency</span>
+                </h1>
+                <p class="hero-subtitle">Discover the most powerful AI tools to boost your productivity and creativity</p>
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search AI tools...">
+                        <button class="search-btn">Search</button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">AI tools</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Main categories</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Free</span>
+                        <span class="stat-label">Completely free</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-cards">
+                    <div class="floating-card" style="--delay: 0s">
+                        <i class="fas fa-pen"></i>
+                        <span>Text creation</span>
+                    </div>
+                    <div class="floating-card" style="--delay: 1s">
+                        <i class="fas fa-image"></i>
+                        <span>Image generation</span>
+                    </div>
+                    <div class="floating-card" style="--delay: 2s">
+                        <i class="fas fa-video"></i>
+                        <span>Video creation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类区域 -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Tool Categories</h2>
+                <p>Choose according to your needs to boost efficiency</p>
+            </div>
+            <div class="all-categories-tools"></div>
+        </div>
+    </section>
+
+    <!-- 关于区域 -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Efficore</h2>
+                    <p>Efficore is a platform that focuses on AI efficiency tools, aiming to help individuals and teams find the most suitable AI tools to boost productivity and creativity.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Selected high-quality AI tools</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Detailed usage guide</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Real-time update and maintenance</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact us</h2>
+                <p>Have any suggestions or questions? Welcome to contact us</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@efficore.online</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>https://efficore.online</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Efficore</h3>
+                    <p>AI efficiency tool library, helping to boost productivity</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#" data-category="text">Text creation</a></li>
+                        <li><a href="#" data-category="image">Image creation</a></li>
+                        <li><a href="#" data-category="video">Video creation</a></li>
+                        <li><a href="#" data-category="search">AI search</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Efficore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 搜索结果对话框 -->
+    <div id="searchResultModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="searchModalClose">&times;</span>
+            <div id="searchResultCard"></div>
+        </div>
     </div>
-    <div class="container">
-        <div class="category">
-            <h2>Text Creation & Editing</h2>
-            <div class="tool-list" id="text-tools">
-                <!-- Add tool items here -->
-                <div class="tool-item"><a href="https://chat.openai.com/" target="_blank">ChatGPT</a></div>
-                <div class="tool-item"><a href="https://deepseek.com/" target="_blank">DeepSeek</a></div>
-                <div class="tool-item"><a href="https://www.grammarly.com/" target="_blank">Grammarly</a></div>
-                <div class="tool-item"><a href="https://prowritingaid.com/" target="_blank">ProWritingAid</a></div>
-                <div class="tool-item"><a href="https://quillbot.com/" target="_blank">QuillBot</a></div>
-                <div class="tool-item"><a href="https://textrise.com/" target="_blank">TextRise</a></div>
-                <div class="tool-item"><a href="https://scribbr.com/" target="_blank">Scribbr</a></div>
-                <div class="tool-item"><a href="https://anyword.com/" target="_blank">Anyword</a></div>
-                <div class="tool-item"><a href="https://rejoiner.ai/" target="_blank">RejoinerAI</a></div>
-                <div class="tool-item"><a href="https://writesonic.com/" target="_blank">Writesonic</a></div>
-                <div class="tool-item"><a href="https://copy.ai/" target="_blank">Copy.ai</a></div>
-                <div class="tool-item"><a href="https://articoolo.com/" target="_blank">Articoolo</a></div>
-                <div class="tool-item"><a href="https://wordtune.com/" target="_blank">Wordtune</a></div>
-                <div class="tool-item"><a href="https://copysmith.io/" target="_blank">Copysmith</a></div>
-                <div class="tool-item"><a href="https://paraphraser.io/" target="_blank">Paraphraser.io</a></div>
-                <div class="tool-item"><a href="https://contentrewriter.com/" target="_blank">Contentrewriter.com</a></div>
-                <div class="tool-item"><a href="https://articleforge.com/" target="_blank">Article Forge</a></div>
-                <div class="tool-item"><a href="https://summarize.co/" target="_blank">Summarize.co</a></div>
-                <div class="tool-item"><a href="https://textalley.com/" target="_blank">TextAlley</a></div>
-                <div class="tool-item"><a href="https://rewriteguru.com/" target="_blank">RewriteGuru</a></div>
-            </div>
-        </div>
 
-        <div class="category">
-            <h2>Image Creation & Editing</h2>
-            <div class="tool-list" id="image-tools">
-                <div class="tool-item"><a href="https://midjourney.com/" target="_blank">MidJourney</a></div>
-                <div class="tool-item"><a href="https://stability.ai/stablediffusion" target="_blank">Stable Diffusion</a></div>
-                <div class="tool-item"><a href="https://dall-e-mini.azurewebsites.net/" target="_blank">DALL-E mini</a></div>
-                <div class="tool-item"><a href="https://runwayml.com/create/" target="_blank">Runway ML Create</a></div>
-                <div class="tool-item"><a href="https://dreamscope.ai/" target="_blank">Dreamscope</a></div>
-                <div class="tool-item"><a href="https://creator.nightcafe.studio/" target="_blank">NightCafe Creator</a></div>
-                <div class="tool-item"><a href="https://pixray.com/" target="_blank">Pixray</a></div>
-                <div class="tool-item"><a href="https://artbreeder.com/" target="_blank">Artbreeder</a></div>
-                <div class="tool-item"><a href="https://lexica.art/" target="_blank">Lexica.art</a></div>
-                <div class="tool-item"><a href="https://promptbase.com/" target="_blank">PromptBase</a></div>
-                <div class="tool-item"><a href="https://artisto.app/" target="_blank">Artisto</a></div>
-                <div class="tool-item"><a href="https://waifudiffusion.com/" target="_blank">WaifuDiffusion</a></div>
-                <div class="tool-item"><a href="https://www.deepart.io/" target="_blank">DeepArt</a></div>
-                <div class="tool-item"><a href="https://prisma.com/" target="_blank">Prisma</a></div>
-                <div class="tool-item"><a href="https://designschool.canva.com/" target="_blank">Canva Design School</a></div>
-                <div class="tool-item"><a href="https://spark.adobe.com/" target="_blank">Adobe Spark Post</a></div>
-                <div class="tool-item"><a href="https://picmonkey.com/" target="_blank">PicMonkey</a></div>
-                <div class="tool-item"><a href="https://paint.net/" target="_blank">Paint.NET</a></div>
-                <div class="tool-item"><a href="https://krita.org/" target="_blank">Krita</a></div>
-                <div class="tool-item"><a href="https://www.gimp.org/" target="_blank">GIMP</a></div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>Video Creation & Editing</h2>
-            <div class="tool-list" id="video-tools">
-                <div class="tool-item"><a href="https://runwayml.com/video/" target="_blank">Runway ML Video</a></div>
-                <div class="tool-item"><a href="https://sorastudio.com/" target="_blank">Sora Studio</a></div>
-                <div class="tool-item"><a href="https://lumen5.com/" target="_blank">Lumen5</a></div>
-                <div class="tool-item"><a href="https://animoto.com/" target="_blank">Animoto</a></div>
-                <div class="tool-item"><a href="https://kapwing.com/" target="_blank">Kapwing</a></div>
-                <div class="tool-item"><a href="https://renderforest.com/" target="_blank">Renderforest</a></div>
-                <div class="tool-item"><a href="https://veed.io/" target="_blank">Veed.io</a></div>
-                <div class="tool-item"><a href="https://lightworks.com/" target="_blank">Lightworks</a></div>
-                <div class="tool-item"><a href="https://hitfilm.com/express" target="_blank">HitFilm Express</a></div>
-                <div class="tool-item"><a href="https://www.blackmagicdesign.com/products/davinciresolve/" target="_blank">DaVinci Resolve</a></div>
-                <div class="tool-item"><a href="https://www.blender.org/" target="_blank">Blender Video Editing</a></div>
-                <div class="tool-item"><a href="https://imovie.apple.com/us/" target="_blank">iMovie</a></div>
-                <div class="tool-item"><a href="https://filmora.wondershare.com/" target="_blank">Filmora</a></div>
-                <div class="tool-item"><a href="https://shotcut.org/" target="_blank">Shotcut</a></div>
-                <div class="tool-item"><a href="https://www.pinnacle.com/en/pinnacle-studio/free-video-editing-software.aspx" target="_blank">Pinnacle Studio</a></div>
-                <div class="tool-item"><a href="https://www.cinelerra-gg.org/" target="_blank">Avidemux</a></div>
-                <div class="tool-item"><a href="https://www.openshot.org/" target="_blank">Openshot Video Editor</a></div>
-                <div class="tool-item"><a href="https://wax.video/" target="_blank">Wax</a></div>
-                <div class="tool-item"><a href="https://magisto.com/" target="_blank">Magisto</a></div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>AI Search & Research Assistant</h2>
-            <div class="tool-list" id="search-tools">
-                <div class="tool-item"><a href="https://perplexity.ai/" target="_blank">Perplexity.ai</a></div>
-                <div class="tool-item"><a href="https://www.wolframalpha.com/" target="_blank">Wolfram Alpha</a></div>
-                <div class="tool-item"><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></div>
-                <div class="tool-item"><a href="https://www.bing.com/images/search?FORM=HDRSC2&scenario=ImageBasicHover" target="_blank">Bing Visual Search</a></div>
-                <div class="tool-item"><a href="https://qwen.to/" target="_blank">Qwen</a></div>
-                <div class="tool-item"><a href="https://claude.ai/" target="_blank">Claude</a></div>
-                <div class="tool-item"><a href="https://anthropic.com/" target="_blank">Anthropic</a></div>
-                <div class="tool-item"><a href="https://github.com/openai/codex" target="_blank">OpenAI Codex</a></div>
-                <div class="tool-item"><a href="https://bard.google.com/" target="_blank">Bard by Google</a></div>
-                <div class="tool-item"><a href="https://duckduckgo.com/" target="_blank">DuckDuckGo</a></div>
-                <div class="tool-item"><a href="https://startpage.com/" target="_blank">Startpage</a></div>
-                <div class="tool-item"><a href="https://swisscows.ch/" target="_blank">Swisscows</a></div>
-                <div class="tool-item"><a href="https://baike.baidu.com/" target="_blank">Baidu Baike</a></div>
-                <div class="tool-item"><a href="https://www.yahoosearch.com/" target="_blank">Yahoo Answers</a></div>
-                <div class="tool-item"><a href="https://zen.yandex.com/" target="_blank">Yandex Zen</a></div>
-                <div class="tool-item"><a href="https://www.reddit.com/r/AskScience/" target="_blank">Reddit AskScience</a></div>
-                <div class="tool-item"><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></div>
-                <div class="tool-item"><a href="https://www.quora.com/" target="_blank">Quora</a></div>
-                <div class="tool-item"><a href="https://medium.com/" target="_blank">Medium</a></div>
-                <div class="tool-item"><a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a></div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>AI Workflow Automation & Integration</h2>
-            <div class="tool-list" id="automation-tools">
-                <div class="tool-item"><a href="https://zapier.com/" target="_blank">Zapier AI</a></div>
-                <div class="tool-item"><a href="https://integromat.com/" target="_blank">Integromat</a></div>
-                <div class="tool-item"><a href="https://flow.microsoft.com/" target="_blank">Microsoft Power Automate</a></div>
-                <div class="tool-item"><a href="https://ifttt.com/" target="_blank">IFTTT</a></div>
-                <div class="tool-item"><a href="https://make.com/" target="_blank">Make</a></div>
-                <div class="tool-item"><a href="https://workato.com/" target="_blank">Workato</a></div>
-                <div class="tool-item"><a href="https://www.zoho.com/workflow.html" target="_blank">Zoho Flow</a></div>
-                <div class="tool-item"><a href="https://airtable.com/integrations/automations" target="_blank">Airtable Automations</a></div>
-                <div class="tool-item"><a href="https://autopilothq.com/" target="_blank">AutopilotHQ</a></div>
-                <div class="tool-item"><a href="https://community.uipath.com/t5/AutoPilot-Community/tkb-p/auto_pilot_community" target="_blank">UiPath Go!</a></div>
-                <div class="tool-item"><a href="https://processmaker.com/community-edition/" target="_blank">ProcessMaker Community Edition</a></div>
-                <div class="tool-item"><a href="https://robocorp.com/cloud-free-tier/" target="_blank">Robocorp Cloud Free Tier</a></div>
-                <div class="tool-item"><a href="https://blueprism.com/community-edition/" target="_blank">Blue Prism Community Edition</a></div>
-                <div class="tool-item"><a href="https://cloud.oracle.com/application-integration/process-automation" target="_blank">Oracle Process Cloud Service</a></div>
-                <div class="tool-item"><a href="https://celigo.com/integrator/" target="_blank">Celigo Integrator</a></div>
-                <div class="tool-item"><a href="https://skyvia.com/" target="_blank">Skyvia</a></div>
-                <div class="tool-item"><a href="https://jitterbit.com/harmony/" target="_blank">Jitterbit Harmony</a></div>
-                <div class="tool-item"><a href="https://boomi.com/platform/atomosphere/" target="_blank">Dell Boomi AtomSphere</a></div>
-                <div class="tool-item"><a href="https://www.celigo.com/integrator/" target="_blank">Celigo Integrator</a></div>
-                <div class="tool-item"><a href="https://www.skyvia.com/" target="_blank">Skyvia</a></div>
-            </div>
-        </div>
-
-        <div class="category">
-            <h2>AI Communication & Collaboration</h2>
-            <div class="tool-list" id="communication-tools">
-                <div class="tool-item"><a href="https://uhmegle.com/" target="_blank">Uhmegle</a></div>
-                <div class="tool-item"><a href="https://discord.com/" target="_blank">Discord</a></div>
-                <div class="tool-item"><a href="https://slack.com/" target="_blank">Slack</a></div>
-                <div class="tool-item"><a href="https://teams.microsoft.com/" target="_blank">Microsoft Teams</a></div>
-                <div class="tool-item"><a href="https://zoom.us/" target="_blank">Zoom</a></div>
-                <div class="tool-item"><a href="https://meet.google.com/" target="_blank">Google Meet</a></div>
-                <div class="tool-item"><a href="https://webex.cisco.com/" target="_blank">Cisco Webex</a></div>
-                <div class="tool-item"><a href="https://www.skype.com/" target="_blank">Skype</a></div>
-                <div class="tool-item"><a href="https://business.whatsapp.com/" target="_blank">WhatsApp Business API</a></div>
-                <div class="tool-item"><a href="https://telegram.org/" target="_blank">Telegram</a></div>
-                <div class="tool-item"><a href="https://signal.org/" target="_blank">Signal</a></div>
-                <div class="tool-item"><a href="https://rocket.chat/" target="_blank">Rocket.Chat</a></div>
-                <div class="tool-item"><a href="https://mattermost.com/" target="_blank">Mattermost</a></div>
-                <div class="tool-item"><a href="https://element.io/" target="_blank">Element</a></div>
-                <div class="tool-item"><a href="https://wire.com/" target="_blank">Wire</a></div>
-                <div class="tool-item"><a href="https://ringcentral.zoom.us/" target="_blank">RingCentral Meetings</a></div>
-                <div class="tool-item"><a href="https://bluejeans.com/" target="_blank">BlueJeans</a></div>
-                <div class="tool-item"><a href="https://fuze.com/" target="_blank">Fuze</a></div>
-                <div class="tool-item"><a href="https://join.me/" target="_blank">Join.me</a></div>
-                <div class="tool-item"><a href="https://owl.video/" target="_blank">Owl Video Conferencing</a></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function filterTools() {
-            const searchValue = document.getElementById('searchInput').value.toLowerCase();
-            const allCategories = document.querySelectorAll('.tool-list');
-
-            allCategories.forEach(category => {
-                category.querySelectorAll('.tool-item').forEach(tool => {
-                    if (tool.textContent.toLowerCase().includes(searchValue)) {
-                        tool.style.display = '';
-                    } else {
-                        tool.style.display = 'none';
-                    }
-                });
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
-</html>
-
-
+</html> 
